@@ -1,16 +1,37 @@
 import {Request,Response} from "express";
-import UserService from "./service"
-export const AddUser = async (req:Request, res:Response) => {
+import CategoryService from "./service"
+import { CustomRequest } from "../../middleware/authMiddleware";
+export const getAllCategory = async (req:CustomRequest, res:Response) => {
     try {
-        const result = await UserService.AddUser(req.body);
+        const user_id=req.UserId
+        const result = await CategoryService.getAllCategory(user_id as string);
         res.status(200).json(result);
     } catch (error) {
         res.status(400).json(error)
     }
 };
-export const userLogin = async (req:Request, res:Response) => {
+export const createCategory = async (req:CustomRequest, res:Response) => {
     try {
-        const result = await UserService.userLogin(req.body)
+        const user_id=req.UserId
+        const result = await CategoryService.createCategory(req.body,user_id as string) 
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+export const deleteCategory = async (req:CustomRequest, res:Response) => {
+    try {
+        const user_id=req.UserId
+        const result = await CategoryService.deleteCategory(req.params.id ) 
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
+export const updateCategory = async (req:CustomRequest, res:Response) => {
+    try {
+        const user_id=req.UserId
+        const result = await CategoryService.updateCategory(req.body,req.params.id) 
         res.status(200).json(result)
     } catch (error) {
         res.status(400).json(error)
