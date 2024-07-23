@@ -1,0 +1,30 @@
+export const textVariants={
+    default: { fontSize: 16, fontWeight: 'normal' },
+    textXs:{ fontSize: 12, lineHeight: '16'},
+    textSm:{ fontSize: 14, lineHeight: '18'},
+    textMd:{ fontSize: 16, lineHeight: '20'},
+    textLg:{ fontSize: 18, lineHeight: '22'},
+    textXl:{ fontSize: 20, lineHeight: '24'},
+    text2Xl:{ fontSize: 24, lineHeight: '28'},
+    text3Xl:{ fontSize: 30, lineHeight: '32'},
+    textBase:{ fontSize: 16, lineHeight: '24'},
+
+
+    
+    title: { fontSize: 24, fontWeight: 'bold' },
+    subheading: { fontSize: 18, fontWeight: 'bold' },
+    body: { fontSize: 16, fontWeight: 'normal' },
+    caption: { fontSize: 14, fontWeight: 'normal' },
+    primary: { fontSize: 18, fontWeight: 'bold' },
+    secondary: { fontSize: 16, fontWeight: 'normal' },
+    tertiary: { fontSize: 14, fontWeight: 'normal' },
+    quaternary: { fontSize: 12, fontWeight: 'normal' },
+    quinary: { fontSize: 10, fontWeight: 'normal' },
+    senary: { fontSize: 8, fontWeight: 'normal' },
+    septenary: { fontSize: 6, fontWeight: 'normal' },
+    octonary: { fontSize: 4, fontWeight: 'normal' },
+    nonary: { fontSize: 2, fontWeight: 'normal' },
+    denary: { fontSize: 1, fontWeight: 'normal' },
+    centenary: { fontSize: 0.5, fontWeight: 'normal' },
+    millionary: { fontSize: 0.25, fontWeight: 'normal'},
+}
