@@ -1,15 +1,22 @@
-import { Text, View } from "react-native";
+import React from 'react';
+import { ThemeProvider } from "@shopify/restyle";
+import theme from "./utils/theme";
+import Navigation from "./navigation";
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar';
 
-export default function Index() {
+const App = () => {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <SafeAreaProvider>
+        <NavigationContainer independent={true}>
+          <Navigation />
+        </NavigationContainer>
+        <StatusBar translucent />
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }
+
+export default App;
