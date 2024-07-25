@@ -1,12 +1,13 @@
-import React from 'react';
-import { ThemeProvider } from "@shopify/restyle";
-import theme from "./utils/theme";
-import Navigation from "./navigation";
 import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ThemeProvider } from "@shopify/restyle";
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Navigation from "./navigation";
+import theme from "./utils/theme";
 
 const App = () => {
+
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider>

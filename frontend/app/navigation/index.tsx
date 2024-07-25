@@ -1,15 +1,16 @@
-import React from 'react';
-import AuthStackNavigator from "./auth-stack-navigator";
+import React, { useEffect } from 'react';
 import AppStackNavigator from './app-stack-navigator';
-// Import your authenticated stack navigator here
-// import AppStackNavigator from "./app-stack-navigator";
+import useUserGlobalStore from '../store/useUserGlobalStore';
+import AuthStackNavigator from './auth-stack-navigator';
 
 const Navigation = () => {
-    const user = true;  // Replace with actual authentication check
-
+    const { user, updateUser } = useUserGlobalStore()
+    useEffect(() => {
+        updateUser(null);
+    }, [updateUser]);
     return (
-            // <AuthStackNavigator />
-            <AppStackNavigator />
+
+        user ? <AppStackNavigator /> : <AuthStackNavigator />
     );
 }
 
