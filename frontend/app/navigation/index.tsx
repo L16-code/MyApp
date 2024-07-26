@@ -4,10 +4,7 @@ import useUserGlobalStore from '../store/useUserGlobalStore';
 import AuthStackNavigator from './auth-stack-navigator';
 
 const Navigation = () => {
-    const { user, updateUser } = useUserGlobalStore()
-    useEffect(() => {
-        updateUser(null);
-    }, [updateUser]);
+    const { user } = useUserGlobalStore()
     return (
 
         user ? <AppStackNavigator /> : <AuthStackNavigator />
