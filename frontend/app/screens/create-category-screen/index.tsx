@@ -1,3 +1,11 @@
+import Button from "@/app/components/shared/button"
+import NavigateBack from "@/app/components/shared/navigate-back"
+import SafeAreaWrapper from "@/app/components/shared/safe-area-wrapper"
+import { CategoriesStackParamList } from "@/app/navigation/types"
+import axiosInstance, { BASE_URL } from "@/app/services/config"
+import { ICategory, ICategoryRequest, IColor, IIcon } from "@/app/types"
+import { getColors, getIcons } from "@/app/utils/helpers"
+import { Box, Text, Theme } from "@/app/utils/theme"
 import { MaterialCommunityIcons } from "@expo/vector-icons"
 import { RouteProp, useNavigation, useRoute } from "@react-navigation/native"
 import { useTheme } from "@shopify/restyle"
@@ -66,17 +74,17 @@ const CreateCategoryScreen = () => {
     const isEditing = route.params.category ? true : false
 
     const { trigger, isMutating } = useSWRMutation(
-        "categories/create",
+        "category/create-category",
         createCategoryRequest
     )
 
     const { trigger: updateTrigger } = useSWRMutation(
-        "categories/update",
+        "category/update-category",
         updateCategoryRequest
     )
 
     const { trigger: deleteTrigger } = useSWRMutation(
-        "categories/",
+        "category/delete-category",
         deleteCategoryRequest
     )
 

@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { Icategory } from "./interface";
 import { CategoryModel } from "./model";
 
@@ -8,7 +9,16 @@ const response: {
 } = { message: "", success: false };
 class CategoryService {
     async getAllCategory(user_id:string){
-        const category = await CategoryModel.find({user: user_id});
+        const category = await CategoryModel.find({user:new mongoose.Types.ObjectId(user_id) });
+        // console.log(category)
+        response.success = true;
+        response.message = "Category fetched successfully";
+        response.data = category;
+        return response;
+    }
+    async getCategoryById(id:string){
+        const category = await CategoryModel.findById(id);
+        console.log(category)
         response.success = true;
         response.message = "Category fetched successfully";
         response.data = category;

@@ -6,7 +6,6 @@ import AuthStackNavigator from './auth-stack-navigator';
 const Navigation = () => {
     const { user } = useUserGlobalStore()
     return (
-
         user ? <AppStackNavigator /> : <AuthStackNavigator />
     );
 }

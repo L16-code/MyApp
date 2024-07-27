@@ -9,6 +9,7 @@ import {
     NativeStackNavigationProp,
     NativeStackScreenProps,
 } from "@react-navigation/native-stack"
+import { ICategory, ITask } from "../types"
 
 export type AuthStackParamList = {
     Welcome: undefined
@@ -26,7 +27,7 @@ export type RootBottomTabParamList = {
 export type HomeStackParamList = {
     Home: undefined
     EditTask: {
-        task: undefined
+        task: ITask
     }
 }
 
@@ -36,7 +37,7 @@ export type CategoriesStackParamList = {
         id: string
     }
     CreateCategory: {
-        category?: undefined
+        category?: ICategory
     }
 }
 

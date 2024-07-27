@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import { ITaskSchema } from "./interface";
 import { TaskModel } from "./model";
 
@@ -16,9 +17,9 @@ class CategoryService {
     }
     async createTask(data:ITaskSchema,user_id:string){
         const {name, date, categoryId}=data;
-        const newTask = new TaskModel({ 
-            name, 
-            user:user_id, 
+        const newTask = new TaskModel({
+            name,
+            user:user_id,
             date,
             categoryId
         });
@@ -63,7 +64,7 @@ class CategoryService {
             response.message = "Task not fetched";
             response.data = '';
         }
-        
+
         return response;
     }
     async GetAllCompletedTask(id:string){
@@ -80,19 +81,22 @@ class CategoryService {
         return response;
     }
     async GetAllTodayTask(id:string){
+        // console.log(id)
         const today = new Date();
         today.setHours(0,0,0,0);
-        // console.log(today);
-        const category = await TaskModel.find({user: id, date: today, isCompleted: false});
-        if(category.length>0){
+        // console.log(today.toISOString());
+
+        const task = await TaskModel.find({user:new mongoose.Types.ObjectId(id), date: today.toISOString()});
+        // console.log(task)
+        // if(task.length0){
             response.success = true;
             response.message = "Task fetched successfully";
-            response.data = category;
-        }else{
-            response.success = false;
-            response.message = "Task not fetched";
-            response.data = '';
-        }
+            response.data = task;
+        // }else{
+        //     response.success = false;
+        //     response.message = "Task not fetched";
+        //     response.data = '';
+        // }
         return response;
     }
     async UpdateTask(id:string, data:ITaskSchema){
