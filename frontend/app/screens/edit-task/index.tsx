@@ -40,8 +40,8 @@ const EditTaskScreen = () => {
 
     const navigation = useNavigation()
 
-    const { trigger } = useSWRMutation("tasks/edit", updateTaskRequest)
-    const { trigger: triggerDelete } = useSWRMutation("tasks/", deleteTaskRequest)
+    const { trigger } = useSWRMutation("task/update-task", updateTaskRequest)
+    const { trigger: triggerDelete } = useSWRMutation("task/delete", deleteTaskRequest)
 
     const { task } = route.params
 

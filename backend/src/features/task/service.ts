@@ -113,5 +113,18 @@ class CategoryService {
         }
         return response;
     }
+    async DeleteTask(id:string){
+        const res = await TaskModel.findByIdAndDelete(id);
+        if(res){
+            response.success = true;
+            response.message = "Task deleted successfully";
+            response.data = {};
+        } else{
+            response.success = false;
+            response.message = "Task not deleted";
+            response.data = '';
+        }
+        return response;
+    }
 }
 export default new CategoryService

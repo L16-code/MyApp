@@ -62,3 +62,11 @@ export const UpdateTask = async (req:CustomRequest, res:Response) => {
         res.status(400).json(error)
     }
 }
+export const DeleteTask = async (req:CustomRequest, res:Response) => {
+    try {
+        const result = await CategoryService.DeleteTask(req.params.id) 
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(400).json(error)
+    }
+}
