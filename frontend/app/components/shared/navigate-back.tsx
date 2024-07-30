@@ -9,7 +9,7 @@ const NavigateBack = () => {
     const navigation = useNavigation()
     const theme = useTheme<Theme>()
     const navigateBack = () => {
-        navigation.goBack()
+        navigation.goBack
     }
     return (
         <Pressable onPress={navigateBack}>
